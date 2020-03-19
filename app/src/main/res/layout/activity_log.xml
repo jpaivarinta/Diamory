@@ -6,30 +6,59 @@
     android:layout_height="match_parent"
     tools:context=".DiaryActivity">
 
+
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="355dp"
-        android:layout_height="229dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="268dp"
+        android:layout_height="166dp"
+        android:layout_marginTop="20dp"
+        android:background="#232323"
+        android:cropToPadding="true"
+        android:padding="2.5dp"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.147"
-        app:srcCompat="@drawable/landscape" />
+        app:layout_constraintTop_toBottomOf="@+id/dateText" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="364dp"
-        android:layout_height="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <TextView
+        android:id="@+id/dateText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="TextView"
+        android:textColor="#100F0F"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Write here.." />
-    </com.google.android.material.textfield.TextInputLayout>
+    <Button
+        android:id="@+id/button_add_image"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="#77BC7A"
+        android:scrollbarStyle="outsideInset"
+        android:text="Add image"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <EditText
+        android:id="@+id/diaryText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Write your text here"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_add_image"
+        app:layout_constraintVertical_bias="0.141"
+        tools:layout_editor_absoluteX="-16dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
