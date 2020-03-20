@@ -9,10 +9,10 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="268dp"
-        android:layout_height="166dp"
+        android:layout_width="349dp"
+        android:layout_height="192dp"
         android:layout_marginTop="20dp"
-        android:background="#232323"
+        android:background="#9C9B9B"
         android:cropToPadding="true"
         android:padding="2.5dp"
         android:scaleType="centerCrop"
@@ -41,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:background="#77BC7A"
+        android:background="#FFFFFF"
         android:scrollbarStyle="outsideInset"
         android:text="Add image"
         android:textColor="#000000"
@@ -59,6 +59,19 @@
         app:layout_constraintTop_toBottomOf="@+id/button_add_image"
         app:layout_constraintVertical_bias="0.141"
         tools:layout_editor_absoluteX="-16dp" />
+
+    <Button
+        android:id="@+id/button_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.922"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/diaryText"
+        app:layout_constraintVertical_bias="0.877" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

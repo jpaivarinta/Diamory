@@ -17,6 +17,8 @@ import java.time.format.FormatStyle
 
 class LogActivity : AppCompatActivity() {
 
+    //used to check if log has image or not
+    public var imageSet: Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log)
@@ -41,6 +43,12 @@ class LogActivity : AppCompatActivity() {
             }
         }
 
+        button_save.setOnClickListener {
+            val intent = Intent(applicationContext, MainActivity::class.java)
+            startActivity(intent)
+            Toast.makeText(this, "New log saved.\n(Not really yet)", Toast.LENGTH_SHORT).show()
+        }
+
     }
     //show current date
     private fun showDate(){
@@ -58,6 +66,7 @@ class LogActivity : AppCompatActivity() {
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
         startActivityForResult(intent, IMAGE_PICK_CODE)
+        imageSet = true
     }
 
 

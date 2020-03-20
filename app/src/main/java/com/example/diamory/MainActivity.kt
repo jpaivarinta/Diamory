@@ -11,15 +11,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        button_log.setOnClickListener{
+        button_log.setOnClickListener {
             val intent = Intent(applicationContext, LogActivity::class.java)
             startActivity(intent)
+        }
 
         button_diary.setOnClickListener{
             val intent = Intent(applicationContext, DiaryActivity::class.java)
             startActivity(intent)
         }
-        }
+
     }
 
 
