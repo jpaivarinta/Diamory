@@ -4,48 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:alpha="1"
     tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/wood">
+    </LinearLayout>
 
     <TextView
         android:id="@+id/text_logo"
         android:layout_width="295dp"
         android:layout_height="88dp"
-        android:layout_marginTop="152dp"
+        android:layout_marginTop="228dp"
         android:fontFamily="@font/monoton"
-        android:text="DIAMORY"
-        android:textColor="#1C1C1C"
+        android:text="@string/diamory"
+        android:textColor="#090909"
         android:textSize="52sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.554"
+        app:layout_constraintHorizontal_bias="0.62"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/button_log"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
-        android:layout_marginBottom="92dp"
-        android:clickable="true"
-        app:backgroundTint="#DCDCDC"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.841"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_add_black_96dp" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/button_diary"
-        android:layout_width="101dp"
-        android:layout_height="95dp"
-        android:layout_marginBottom="92dp"
-        android:backgroundTint="#302F2F"
-        android:clickable="true"
-        app:backgroundTint="@color/cardview_dark_background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button_log"
-        app:layout_constraintHorizontal_bias="0.384"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_view_list_black_24dp" />
 
     <TextView
         android:id="@+id/text_slogan"
@@ -53,9 +34,10 @@
         android:layout_height="103dp"
         android:layout_marginTop="60dp"
         android:fontFamily="@font/architects_daughter"
-        android:text="Keeping your memories safe"
+        android:text="@string/keeping_your_memories_safe"
         android:textAlignment="center"
         android:textAllCaps="true"
+        android:textColor="#191919"
         android:textSize="24sp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,36 +50,45 @@
         android:layout_width="170dp"
         android:layout_height="34dp"
         android:fontFamily="@font/enriqueta"
-        android:text="Welcome to"
+        android:text="@string/welcome_to"
         android:textAlignment="center"
+        android:textColor="#2B2A2A"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/text_logo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.539"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/logHintText"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/button_log"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:text="Add new log here"
-        app:layout_constraintBottom_toTopOf="@+id/button_log"
-        app:layout_constraintEnd_toEndOf="@+id/button_log"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/button_log" />
+        android:layout_height="0dp"
+        android:layout_marginBottom="124dp"
+        android:layout_weight="1"
+        android:clickable="true"
+        app:backgroundTint="#E1CF3A3A"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.766"
+        app:layout_constraintStart_toStartOf="parent"
+        app:rippleColor="#A8CF3A3A"
+        app:srcCompat="@drawable/ic_add_black_24dp"
+        android:focusable="true" />
 
-    <TextView
-        android:id="@+id/diaryHintText"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/button_diary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="See your diary here"
-        app:layout_constraintBottom_toTopOf="@+id/button_diary"
-        app:layout_constraintEnd_toEndOf="@+id/button_diary"
-        app:layout_constraintHorizontal_bias="0.44"
-        app:layout_constraintStart_toStartOf="@+id/button_diary" />
+        android:layout_marginBottom="124dp"
+        android:clickable="true"
+        app:backgroundTint="#CE100F0F"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_log"
+        app:layout_constraintHorizontal_bias="0.435"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_view_list_black_24dp"
+        android:focusable="true" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

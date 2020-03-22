@@ -46,7 +46,7 @@ class LogActivity : AppCompatActivity() {
         button_save.setOnClickListener {
             val intent = Intent(applicationContext, MainActivity::class.java)
             startActivity(intent)
-            Toast.makeText(this, "New log saved.\n(Not really yet)", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "New log saved.\n(Not implemented yet)", Toast.LENGTH_SHORT).show()
         }
 
     }
