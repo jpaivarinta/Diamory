@@ -45,19 +45,14 @@ class LogActivity : AppCompatActivity() {
 
         button_save.setOnClickListener {
 
-            /*
             val dbHandler = SQLiteHelper(this)
-
             val testText = "Testimerkinta"
-            val text = DiaryModelClass(testText)
-            dbHandler.addLog(text)
-
+            dbHandler.addLog(DiaryModel(testText))
+            /*
             val intent = Intent(applicationContext, MainActivity::class.java)
-            */
             startActivity(intent)
-            Toast.makeText(this, "New log saved.\n(Not implemented yet)", Toast.LENGTH_SHORT).show()
-
-            //Toast.makeText(this, testText + "Added to database", Toast.LENGTH_LONG).show()
+            */
+            Toast.makeText(this, "New text added to database", Toast.LENGTH_LONG).show()
 
         }
 
