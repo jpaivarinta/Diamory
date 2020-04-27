@@ -19,11 +19,30 @@ class LogActivity : AppCompatActivity() {
 
     //used to check if log has image or not
     var imageSet: Boolean = false
+
+    val dbHandler = SQLiteHelper(this)
+    var dataList = ArrayList<HashMap<String, String>>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log)
 
         showDate()
+
+        button_save.setOnClickListener {
+
+            val testText = "Testimerkinta"
+            dbHandler.addLog(DiaryModel(testText))
+            /*
+            val intent = Intent(applicationContext, MainActivity::class.java)
+            startActivity(intent)
+            */
+
+            Toast.makeText(this, "New text added to database", Toast.LENGTH_LONG).show()
+
+        }
+
+
 
         button_add_image.setOnClickListener{
             //checking runtime permission
@@ -43,18 +62,8 @@ class LogActivity : AppCompatActivity() {
             }
         }
 
-        button_save.setOnClickListener {
 
-            val dbHandler = SQLiteHelper(this)
-            val testText = "Testimerkinta"
-            dbHandler.addLog(DiaryModel(testText))
-            /*
-            val intent = Intent(applicationContext, MainActivity::class.java)
-            startActivity(intent)
-            */
-            Toast.makeText(this, "New text added to database", Toast.LENGTH_LONG).show()
 
-        }
 
     }
     //show current date
