@@ -19,9 +19,8 @@ import java.time.format.FormatStyle
 
 class LogActivity : AppCompatActivity() {
 
-    //used to check if log has image or not
-    var imageSet: Boolean = false
 
+    var imageSet: Boolean = false           //used to check if log has image or not
     val dbHandler = SQLiteHelper(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,10 +32,10 @@ class LogActivity : AppCompatActivity() {
         val formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss")
 
         button_save.setOnClickListener {
-            val testText = "Testimerkinta"
+            val logText = diaryText.text.toString()
            //val imageString =
             val currentTime = LocalDateTime.now().format(formatter).toString()
-            dbHandler.addLog(DiaryModel(currentTime, testText))
+            dbHandler.addLog(DiaryModel(currentTime, logText))
             val intent = Intent(applicationContext, MainActivity::class.java)
             startActivity(intent)
             Toast.makeText(this, "New text added to database", Toast.LENGTH_LONG).show()
