@@ -16,7 +16,8 @@ class SQLiteHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, n
                 " (" + KEY_ID +
                 " INTEGER PRIMARY KEY, " +
                 KEY_DATE + " TEXT, " +
-                KEY_TEXT + " TEXT" + ")")
+                KEY_TEXT + " TEXT, " +
+                KEY_IMAGE + " BLOB" + ")")
         db?.execSQL(CREATE_DIARY_TABLE)
     }
 
@@ -29,26 +30,32 @@ class SQLiteHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, n
     fun addLog(diary: DiaryModel){
         val db = this.writableDatabase
         val values = ContentValues()
-        values.put(KEY_ID, diary.textID)
+        //values.put(KEY_ID, diary.textID)      //not necessary have this?
         values.put(KEY_DATE, diary.date)
         values.put(KEY_TEXT, diary.diaryText)
+        //values.put(KEY_IMAGE, diary.image)
         db.insert(TABLE_NAME, null, values)
         db.close()
     }
 
+    fun deleteLog(diary: DiaryModel){
+        val db = this.writableDatabase
+    }
+
     fun getAllLogs(): Cursor? {
         val db = this.readableDatabase
-        return db.rawQuery("SELECT KEY_TEXT FROM $TABLE_NAME", null)
+        return db.rawQuery("SELECT * FROM $TABLE_NAME", null)
     }
 
     companion object{
         val DATABASE_VERSION = 1
-        val DATABASE_NAME = "DiaryDatabase"
+        val DATABASE_NAME = "DiaryDatabase.db"
         val TABLE_NAME = "DiaryTable"
 
         //TABLE
         val KEY_ID = "id"
         val KEY_DATE = "date"
         val KEY_TEXT = "text"
+        val KEY_IMAGE = "image"
     }
 }

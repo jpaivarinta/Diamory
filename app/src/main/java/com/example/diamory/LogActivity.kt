@@ -4,6 +4,7 @@ import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,6 +13,7 @@ import android.widget.TextView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_log.*
 import java.time.LocalDate
+import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 
@@ -21,7 +23,6 @@ class LogActivity : AppCompatActivity() {
     var imageSet: Boolean = false
 
     val dbHandler = SQLiteHelper(this)
-    var dataList = ArrayList<HashMap<String, String>>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,15 +30,15 @@ class LogActivity : AppCompatActivity() {
 
         showDate()
 
-        button_save.setOnClickListener {
+        val formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss")
 
+        button_save.setOnClickListener {
             val testText = "Testimerkinta"
-            dbHandler.addLog(DiaryModel(testText))
-            /*
+           //val imageString =
+            val currentTime = LocalDateTime.now().format(formatter).toString()
+            dbHandler.addLog(DiaryModel(currentTime, testText))
             val intent = Intent(applicationContext, MainActivity::class.java)
             startActivity(intent)
-            */
-
             Toast.makeText(this, "New text added to database", Toast.LENGTH_LONG).show()
 
         }
