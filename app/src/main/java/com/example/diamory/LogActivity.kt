@@ -34,7 +34,7 @@ class LogActivity : AppCompatActivity() {
         val formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss")
 
         button_save.setOnClickListener {
-
+            if(imageView != null)
             val bitmap = (imageView.drawable as BitmapDrawable).bitmap                  //MUUTOKSIA
             val logText = diaryText.text.toString()
             val currentTime = LocalDateTime.now().format(formatter).toString()

@@ -15,6 +15,7 @@ class DiaryActivity : AppCompatActivity() {
         val dbHandler = SQLiteHelper(this)
         val cursor = dbHandler.getAllLogs()
         cursor!!.moveToFirst()
+
         tvDisplayDb.append(cursor.getString(cursor.getColumnIndex(SQLiteHelper.KEY_TEXT)))
         tvDisplayDb.append(" ")
         tvDisplayDb.append(cursor.getString(cursor.getColumnIndex(SQLiteHelper.KEY_DATE)))

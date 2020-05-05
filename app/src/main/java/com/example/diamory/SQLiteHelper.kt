@@ -31,8 +31,8 @@ class SQLiteHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, n
         val db = this.writableDatabase
         val values = ContentValues()
         //values.put(KEY_ID, diary.textID)      //not necessary have this?
-        values.put(KEY_DATE, diary.date)
         values.put(KEY_TEXT, diary.diaryText)
+        values.put(KEY_DATE, diary.date)
         values.put(KEY_IMAGE, diary.image)       //MUUTOKSIA
         db.insert(TABLE_NAME, null, values)
         db.close()
