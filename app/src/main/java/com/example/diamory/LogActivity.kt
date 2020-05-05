@@ -4,6 +4,8 @@ import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -32,10 +34,11 @@ class LogActivity : AppCompatActivity() {
         val formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss")
 
         button_save.setOnClickListener {
+
+            val bitmap = (imageView.drawable as BitmapDrawable).bitmap                  //MUUTOKSIA
             val logText = diaryText.text.toString()
-           //val imageString =
             val currentTime = LocalDateTime.now().format(formatter).toString()
-            dbHandler.addLog(DiaryModel(currentTime, logText))
+            dbHandler.addLog(DiaryModel(currentTime, logText, Tools.getBytes(bitmap)))           //MUUTOKSIA
             val intent = Intent(applicationContext, MainActivity::class.java)
             startActivity(intent)
             Toast.makeText(this, "New text added to database", Toast.LENGTH_LONG).show()
