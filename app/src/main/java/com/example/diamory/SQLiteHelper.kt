@@ -30,21 +30,26 @@ class SQLiteHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, n
     fun addLog(diary: DiaryModel){
         val db = this.writableDatabase
         val values = ContentValues()
-        //values.put(KEY_ID, diary.textID)      //not necessary have this?
         values.put(KEY_TEXT, diary.diaryText)
         values.put(KEY_DATE, diary.date)
-        values.put(KEY_IMAGE, diary.image)       //MUUTOKSIA
+        //values.put(KEY_IMAGE, diary.image)       //MUUTOKSIA
         db.insert(TABLE_NAME, null, values)
         db.close()
     }
 
     fun deleteLog(diary: DiaryModel){
         val db = this.writableDatabase
+
     }
 
     fun getAllLogs(): Cursor? {
         val db = this.readableDatabase
         return db.rawQuery("SELECT * FROM $TABLE_NAME", null)
+    }
+
+    fun getDates(): Cursor? {
+        val db = this.readableDatabase
+        return db.rawQuery("SELECT KEY_DATE FROM $TABLE_NAME", null)
     }
 
     companion object{
