@@ -39,12 +39,16 @@ class SQLiteHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, n
 
     fun deleteLog(diary: DiaryModel){
         val db = this.writableDatabase
-
     }
 
     fun getAllLogs(): Cursor? {
         val db = this.readableDatabase
         return db.rawQuery("SELECT * FROM $TABLE_NAME", null)
+    }
+
+    fun getOneLog(date: String): String {
+        val db = this.readableDatabase
+        return db.rawQuery("SELECT * FROM $TABLE_NAME WHERE $KEY_DATE = $date", null) as String
     }
 
     fun getDates(): Cursor? {

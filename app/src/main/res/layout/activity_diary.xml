@@ -33,14 +33,14 @@
 
     <ListView
         android:id="@+id/dbListview"
-        android:layout_width="223dp"
-        android:layout_height="270dp"
+        android:layout_width="207dp"
+        android:layout_height="443dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintHorizontal_bias="0.578"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvDisplayDb"
-        app:layout_constraintVertical_bias="0.299" />
+        app:layout_constraintVertical_bias="0.138" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
