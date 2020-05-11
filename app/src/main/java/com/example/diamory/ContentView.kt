@@ -48,7 +48,7 @@ class ContentView : AppCompatActivity() {
             }
         }
 
-        return "haista ite"
+        return "Log not found"
     }
 
 

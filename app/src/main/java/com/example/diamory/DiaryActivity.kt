@@ -42,15 +42,11 @@ class DiaryActivity : AppCompatActivity() {
 
     }
 
-    fun updateList() {
-
-    }
 
     private fun createList(): ArrayList<String> {
         var tempList = arrayListOf<String>()
         val dbHandler = SQLiteHelper(this)
-        val
-        cursor = dbHandler.getAllLogs()
+        val cursor = dbHandler.getAllLogs()
         cursor!!.moveToFirst()
         tempList.add(cursor.getString(cursor.getColumnIndex(SQLiteHelper.KEY_DATE)))
         while (cursor.moveToNext()) {

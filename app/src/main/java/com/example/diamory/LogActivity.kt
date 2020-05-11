@@ -34,11 +34,15 @@ class LogActivity : AppCompatActivity() {
         val formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss")
 
         button_save.setOnClickListener {
-            //if(imageView != null)
-           // val bitmap = (imageView.drawable as BitmapDrawable).bitmap                  //MUUTOKSIA
             val logText = diaryText.text.toString()
             val currentTime = LocalDateTime.now().format(formatter).toString()
-            dbHandler.addLog(DiaryModel(currentTime, logText/*, Tools.getBytes(bitmap)*/))           //MUUTOKSIA
+            if(imageView.drawable != null){
+                val bitmap = (imageView.drawable as BitmapDrawable).bitmap
+                dbHandler.addLogWPic(DiaryModel(currentTime, logText, Tools.getBytes(bitmap)))
+            } else {
+                Toast.makeText(this, "addlog without picture", Toast.LENGTH_LONG).show()
+                dbHandler.addLog(DiaryModel(currentTime, logText))
+            }
             val intent = Intent(applicationContext, MainActivity::class.java)
             startActivity(intent)
             Toast.makeText(this, "New text added to database", Toast.LENGTH_LONG).show()

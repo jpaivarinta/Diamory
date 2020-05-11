@@ -32,14 +32,23 @@ class SQLiteHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, n
         val values = ContentValues()
         values.put(KEY_TEXT, diary.diaryText)
         values.put(KEY_DATE, diary.date)
-        //values.put(KEY_IMAGE, diary.image)       //MUUTOKSIA
         db.insert(TABLE_NAME, null, values)
         db.close()
     }
 
+    fun addLogWPic(diary: DiaryModel){
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put(KEY_TEXT, diary.diaryText)
+        values.put(KEY_DATE, diary.date)
+        values.put(KEY_IMAGE, diary.image)
+        db.insert(TABLE_NAME, null, values)
+        db.close()
+    }
+
+
     fun deleteLog(id:String): Boolean{
         val db = this.writableDatabase
-        //db.rawQuery("DELETE FROM $TABLE_NAME WHERE $KEY_DATE = $date", null)
         return db.delete(TABLE_NAME, "$KEY_ID = $id", null) > 0
     }
 
