@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_content_view.*
 
 class ContentView : AppCompatActivity() {
@@ -12,6 +13,7 @@ class ContentView : AppCompatActivity() {
     val dbHandler = SQLiteHelper(this)
     var dateId = ""
     lateinit var image: ByteArray
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,11 +26,12 @@ class ContentView : AppCompatActivity() {
 
         val intent = intent
         val diarydate = intent.getStringExtra("diarydate")
+        image = byteArrayOf()
         val diarytext = createString(diarydate)
         dateTextview.setText(diarydate)
         diaryTextview.setText(diarytext)
 
-        if (image!=null){
+        if (image.isNotEmpty()){
             var bmImage = Tools.getImage(image)
             imageView.setImageBitmap(bmImage)
         }
@@ -47,6 +50,10 @@ class ContentView : AppCompatActivity() {
         val cursor = dbHandler.getAllLogs()
         cursor!!.moveToFirst()
         if (cursor.getString(cursor.getColumnIndex(SQLiteHelper.KEY_DATE)) == date){
+            dateId = cursor.getString(cursor.getColumnIndex(SQLiteHelper.KEY_ID)) as String
+            if (cursor.getBlob(cursor.getColumnIndex(SQLiteHelper.KEY_IMAGE)) != null){
+                image = cursor.getBlob(cursor.getColumnIndex(SQLiteHelper.KEY_IMAGE))
+            }
             return cursor.getString(cursor.getColumnIndex(SQLiteHelper.KEY_TEXT)) as String
         }
         while (cursor.moveToNext()) {

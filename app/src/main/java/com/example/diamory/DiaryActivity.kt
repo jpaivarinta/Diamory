@@ -1,11 +1,10 @@
 package com.example.diamory
 
 import android.content.Intent
+import android.database.Cursor
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.ListView
+import android.widget.*
 import kotlinx.android.synthetic.main.activity_diary.*
 import kotlinx.android.synthetic.main.activity_main.*
 import java.time.format.DateTimeFormatter
@@ -19,10 +18,18 @@ class DiaryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_diary)
+        val emptyText: TextView = findViewById(R.id.textView2) as TextView
         val dbHandler = SQLiteHelper(this)
 
         listView = findViewById<ListView>(R.id.dbListview)
-        items = createList()
+        var mcursor = dbHandler.getCount()
+        mcursor!!.moveToFirst()
+        if (mcursor.getInt(0) > 0) {
+            items = createList()
+        }
+        else {
+            emptyText.setText("No logs")
+        }
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, items)
         listView.adapter = adapter
 
@@ -34,6 +41,10 @@ class DiaryActivity : AppCompatActivity() {
             startActivity(intent)
 
         }
+
+
+
+
 
         button_main.setOnClickListener{
             val intent = Intent(applicationContext, MainActivity::class.java)
