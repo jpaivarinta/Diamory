@@ -7,6 +7,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import kotlinx.android.synthetic.main.activity_diary.*
+import kotlinx.android.synthetic.main.activity_main.*
 import java.time.format.DateTimeFormatter
 
 class DiaryActivity : AppCompatActivity() {
@@ -16,8 +17,8 @@ class DiaryActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_diary)
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_diary)
 
 
         listView = findViewById<ListView>(R.id.dbListview)
@@ -34,6 +35,14 @@ class DiaryActivity : AppCompatActivity() {
 
         }
 
+        button_main.setOnClickListener{
+            val intent = Intent(applicationContext, MainActivity::class.java)
+            startActivity(intent)
+        }
+
+    }
+
+    fun updateList() {
 
     }
 

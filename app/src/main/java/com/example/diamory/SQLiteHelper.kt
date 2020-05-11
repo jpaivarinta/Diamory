@@ -37,8 +37,10 @@ class SQLiteHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, n
         db.close()
     }
 
-    fun deleteLog(diary: DiaryModel){
+    fun deleteLog(id:String): Boolean{
         val db = this.writableDatabase
+        //db.rawQuery("DELETE FROM $TABLE_NAME WHERE $KEY_DATE = $date", null)
+        return db.delete(TABLE_NAME, "$KEY_ID = $id", null) > 0
     }
 
     fun getAllLogs(): Cursor? {

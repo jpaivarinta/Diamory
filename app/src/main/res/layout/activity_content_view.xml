@@ -23,14 +23,23 @@
 
     <TextView
         android:id="@+id/diarytextView"
-        android:layout_width="231dp"
-        android:layout_height="239dp"
+        android:layout_width="301dp"
+        android:layout_height="387dp"
         android:text="TextView"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dateTextView"
-        app:layout_constraintVertical_bias="0.688" />
+        app:layout_constraintVertical_bias="0.131" />
+
+    <Button
+        android:id="@+id/button_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete log"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/diarytextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

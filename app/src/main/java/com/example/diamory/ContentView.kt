@@ -1,13 +1,15 @@
 package com.example.diamory
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import kotlinx.android.synthetic.main.activity_content_view.*
 
 class ContentView : AppCompatActivity() {
 
     val dbHandler = SQLiteHelper(this)
-
+    var dateId = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_content_view)
@@ -23,6 +25,12 @@ class ContentView : AppCompatActivity() {
         dateTextview.setText(diarydate)
         diaryTextview.setText(diarytext)
 
+        button_delete.setOnClickListener{
+            dbHandler.deleteLog(dateId)
+            val intent = Intent(applicationContext, DiaryActivity::class.java)
+            startActivity(intent)
+        }
+
 
     }
 
@@ -35,10 +43,13 @@ class ContentView : AppCompatActivity() {
         }
         while (cursor.moveToNext()) {
             if (cursor.getString(cursor.getColumnIndex(SQLiteHelper.KEY_DATE)) == date){
+                dateId = cursor.getString(cursor.getColumnIndex(SQLiteHelper.KEY_ID)) as String
                 return cursor.getString(cursor.getColumnIndex(SQLiteHelper.KEY_TEXT)) as String
             }
         }
 
         return "haista ite"
     }
+
+
 }
