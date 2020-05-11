@@ -19,7 +19,7 @@ class DiaryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_diary)
-
+        val dbHandler = SQLiteHelper(this)
 
         listView = findViewById<ListView>(R.id.dbListview)
         items = createList()
@@ -58,4 +58,3 @@ class DiaryActivity : AppCompatActivity() {
 
 
 }
-

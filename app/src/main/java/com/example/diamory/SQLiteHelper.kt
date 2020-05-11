@@ -57,9 +57,9 @@ class SQLiteHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, n
         return db.rawQuery("SELECT * FROM $TABLE_NAME", null)
     }
 
-    fun getOneLog(date: String): String {
+    fun getCount(): Cursor? {
         val db = this.readableDatabase
-        return db.rawQuery("SELECT * FROM $TABLE_NAME WHERE $KEY_DATE = $date", null) as String
+        return db.rawQuery("SELECT count(*) FROM $TABLE_NAME", null)
     }
 
     fun getDates(): Cursor? {
