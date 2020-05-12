@@ -7,10 +7,18 @@
     tools:context=".DiaryActivity">
 
 
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/wood3"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"></LinearLayout>
+
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="286dp"
-        android:layout_height="191dp"
+        android:layout_width="273dp"
+        android:layout_height="181dp"
         android:layout_marginTop="20dp"
         android:background="#BA272626"
         android:cropToPadding="true"
@@ -26,9 +34,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
+        android:fontFamily="sans-serif"
         android:text="@string/textview"
         android:textColor="#100F0F"
-        android:textSize="24sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -36,52 +45,50 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/button_save"
+        android:layout_width="85dp"
+        android:layout_height="44dp"
+        android:background="#BA272626"
+        android:text="@string/save"
+        android:textColor="#CFCFCF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.911"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/diaryText"
+        app:layout_constraintVertical_bias="0.444" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/button_add_image"
-        style="@style/Widget.AppCompat.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="#FFFFFF"
-        android:scrollbarStyle="outsideInset"
-        android:text="@string/add_image"
-        android:textColor="#000000"
+        android:clickable="true"
+        app:backgroundTint="#88E8E8E8"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.895"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.114"
+        app:srcCompat="@drawable/ic_add_a_photo_black_24dp" />
 
     <EditText
         android:id="@+id/diaryText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Write your text here"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_add_image"
-        app:layout_constraintVertical_bias="0.141"
-        tools:layout_editor_absoluteX="-16dp" />
-
-    <Button
-        android:id="@+id/button_save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#FFFFFF"
-        android:text="@string/save"
+        android:layout_width="284dp"
+        android:layout_height="307dp"
+        android:ems="10"
+        android:foregroundGravity="top"
+        android:gravity="start|top"
+        android:hint="Write here"
+        android:inputType="textMultiLine"
+        android:textColor="#F7E4E4E4"
+        android:textColorHint="#BAEDEBEB"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.922"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/diaryText"
-        app:layout_constraintVertical_bias="0.877" />
-
-    <TextView
-        android:id="@+id/dbView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="176dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/diaryText"
-        app:layout_constraintVertical_bias="0.404" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.144" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

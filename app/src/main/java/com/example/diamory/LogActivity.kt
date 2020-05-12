@@ -4,13 +4,11 @@ import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
-import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.MediaStore
+import android.text.method.ScrollingMovementMethod
 import android.widget.TextView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_log.*
@@ -30,8 +28,8 @@ class LogActivity : AppCompatActivity() {
         setContentView(R.layout.activity_log)
 
         showDate()
-
         val formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss")
+        diaryText.movementMethod = ScrollingMovementMethod()
 
         button_save.setOnClickListener {
             val logText = diaryText.text.toString()
@@ -45,11 +43,9 @@ class LogActivity : AppCompatActivity() {
             }
             val intent = Intent(applicationContext, MainActivity::class.java)
             startActivity(intent)
-            Toast.makeText(this, "New text added to database", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Log saved.", Toast.LENGTH_LONG).show()
 
         }
-
-
 
         button_add_image.setOnClickListener{
             //checking runtime permission
@@ -68,11 +64,8 @@ class LogActivity : AppCompatActivity() {
                 pickGalleryImage()
             }
         }
-
-
-
-
     }
+
     //show current date
     private fun showDate(){
         val current = LocalDate.now()
@@ -90,7 +83,6 @@ class LogActivity : AppCompatActivity() {
         startActivityForResult(intent, IMAGE_PICK_CODE)
         imageSet = true
     }
-
 
     companion object{
         //image pick code

@@ -9,7 +9,6 @@ import android.database.sqlite.SQLiteOpenHelper
 class SQLiteHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION )  {
 
 
-
     override fun onCreate(db: SQLiteDatabase?) {
         val CREATE_DIARY_TABLE = ("CREATE TABLE " +
                 TABLE_NAME +
@@ -46,7 +45,6 @@ class SQLiteHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, n
         db.close()
     }
 
-
     fun deleteLog(id:String): Boolean{
         val db = this.writableDatabase
         return db.delete(TABLE_NAME, "$KEY_ID = $id", null) > 0
@@ -62,17 +60,12 @@ class SQLiteHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, n
         return db.rawQuery("SELECT count(*) FROM $TABLE_NAME", null)
     }
 
-    fun getDates(): Cursor? {
-        val db = this.readableDatabase
-        return db.rawQuery("SELECT KEY_DATE FROM $TABLE_NAME", null)
-    }
-
     companion object{
         val DATABASE_VERSION = 1
         val DATABASE_NAME = "DiaryDatabase.db"
         val TABLE_NAME = "DiaryTable"
 
-        //TABLE
+        //columns
         val KEY_ID = "id"
         val KEY_DATE = "date"
         val KEY_TEXT = "text"

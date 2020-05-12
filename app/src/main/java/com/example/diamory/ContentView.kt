@@ -3,6 +3,8 @@ package com.example.diamory
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.method.MovementMethod
+import android.text.method.ScrollingMovementMethod
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -30,6 +32,7 @@ class ContentView : AppCompatActivity() {
         val diarytext = createString(diarydate)
         dateTextview.setText(diarydate)
         diaryTextview.setText(diarytext)
+        diaryTextview.movementMethod = ScrollingMovementMethod()
 
         if (image.isNotEmpty()){
             var bmImage = Tools.getImage(image)
@@ -40,9 +43,13 @@ class ContentView : AppCompatActivity() {
             dbHandler.deleteLog(dateId)
             val intent = Intent(applicationContext, DiaryActivity::class.java)
             startActivity(intent)
+            Toast.makeText(this, "Log on date '" + diarydate + "' deleted.", Toast.LENGTH_LONG).show()
         }
 
-
+        button_main2.setOnClickListener{
+            val intent = Intent(applicationContext, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun createString(date: String): String {
@@ -65,9 +72,8 @@ class ContentView : AppCompatActivity() {
                 return cursor.getString(cursor.getColumnIndex(SQLiteHelper.KEY_TEXT)) as String
             }
         }
-
         return "Log not found"
     }
 
-
 }
+

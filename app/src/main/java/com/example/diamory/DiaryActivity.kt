@@ -1,13 +1,11 @@
 package com.example.diamory
 
 import android.content.Intent
-import android.database.Cursor
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
 import kotlinx.android.synthetic.main.activity_diary.*
-import kotlinx.android.synthetic.main.activity_main.*
-import java.time.format.DateTimeFormatter
+
 
 class DiaryActivity : AppCompatActivity() {
 
@@ -28,7 +26,7 @@ class DiaryActivity : AppCompatActivity() {
             items = createList()
         }
         else {
-            emptyText.setText("No logs")
+            emptyText.setText("NO LOGS")
         }
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, items)
         listView.adapter = adapter
@@ -42,17 +40,12 @@ class DiaryActivity : AppCompatActivity() {
 
         }
 
-
-
-
-
         button_main.setOnClickListener{
             val intent = Intent(applicationContext, MainActivity::class.java)
             startActivity(intent)
         }
 
     }
-
 
     private fun createList(): ArrayList<String> {
         var tempList = arrayListOf<String>()

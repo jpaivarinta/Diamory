@@ -7,6 +7,7 @@
     android:alpha="1"
     tools:context=".MainActivity">
 
+
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
@@ -40,16 +41,17 @@
         android:textColor="#191919"
         android:textSize="24sp"
         android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/button_log"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.552"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_logo" />
+        app:layout_constraintTop_toBottomOf="@+id/text_logo"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/text_welcome"
         android:layout_width="170dp"
         android:layout_height="34dp"
-        android:fontFamily="@font/enriqueta"
+        android:fontFamily="@font/architects_daughter"
         android:text="@string/welcome_to"
         android:textAlignment="center"
         android:textColor="#2B2A2A"
@@ -67,14 +69,14 @@
         android:layout_marginBottom="124dp"
         android:layout_weight="1"
         android:clickable="true"
-        app:backgroundTint="#E1CF3A3A"
+        android:focusable="true"
+        app:backgroundTint="#DC272626"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.766"
         app:layout_constraintStart_toStartOf="parent"
         app:rippleColor="#A8CF3A3A"
-        app:srcCompat="@drawable/ic_add_black_24dp"
-        android:focusable="true" />
+        app:srcCompat="@drawable/ic_add_black_24dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/button_diary"
