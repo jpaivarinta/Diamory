@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".DiaryActivity">
 
-
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
@@ -48,15 +47,14 @@
         android:id="@+id/button_save"
         android:layout_width="85dp"
         android:layout_height="44dp"
+        android:layout_marginTop="16dp"
         android:background="#BA272626"
         android:text="@string/save"
         android:textColor="#CFCFCF"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.911"
+        app:layout_constraintHorizontal_bias="0.809"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/diaryText"
-        app:layout_constraintVertical_bias="0.444" />
+        app:layout_constraintTop_toBottomOf="@+id/diaryText" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/button_add_image"
@@ -74,8 +72,8 @@
 
     <EditText
         android:id="@+id/diaryText"
-        android:layout_width="284dp"
-        android:layout_height="307dp"
+        android:layout_width="287dp"
+        android:layout_height="280dp"
         android:ems="10"
         android:foregroundGravity="top"
         android:gravity="start|top"
